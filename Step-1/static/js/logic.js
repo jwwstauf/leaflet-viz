@@ -1,4 +1,4 @@
-var graymap = L.tileLayer(
+var basemap = L.tileLayer(
   "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
   {
     tileSize: 512,
@@ -10,13 +10,13 @@ var graymap = L.tileLayer(
 
 var map = L.map("map", {
   center: [
-    40.7, -94.5
+    0, 0
   ],
-  zoom:4
+  zoom:3
 });
 
 
-graymap.addTo(map);
+basemap.addTo(map);
 
 
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(function(data) {
@@ -27,7 +27,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
       opacity: 1,
       fillOpacity: 1,
       fillColor: markerColor(feature.geometry.coordinates[2]),
-      color: "#000000",
+      color: "grey",
       radius: getSize(feature.properties.mag),
       stroke: true,
       weight: 0.5
