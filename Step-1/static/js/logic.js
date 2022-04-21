@@ -61,12 +61,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     var div = L.DomUtil.create("div", "info legend");
 
     var grades = [-10, 2, 10, 20];
-    var colors = [
-      "green",
-      "orange",
-      "yellow",
-      "red"
-    ];
+    var colors = ["green","orange","yellow","red"];
 
     for (var i = 0; i < grades.length; i++) {
       div.innerHTML += "<i style='background: " + colors[i] + "'></i> "
@@ -74,6 +69,5 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     }
     return div;
   };
-
   legend.addTo(map);
 });
