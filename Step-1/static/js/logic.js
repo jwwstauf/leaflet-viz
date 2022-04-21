@@ -14,12 +14,10 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
 
   function stylin(feature) {
     return {
-      opacity: .5,
       fillOpacity: .5,
       fillColor: markerColor(feature.geometry.coordinates[2]),
       color: "grey",
       radius: getSize(feature.properties.mag),
-      weight: 0.5
     };
   }
 
