@@ -24,14 +24,21 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
 
   function styleInfo(feature) {
     return {
-      opacity: 1,
-      fillOpacity: 1,
+      opacity: .5,
+      fillOpacity: .5,
       fillColor: markerColor(feature.geometry.coordinates[2]),
       color: "grey",
       radius: getSize(feature.properties.mag),
       stroke: true,
       weight: 0.5
     };
+  }
+
+  function getSize(magnitude) {
+    if (magnitude === 0) {
+      return 1;
+    }
+    return magnitude * 5;
   }
 
   function markerColor(depth){
@@ -52,12 +59,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
 
 }
 
-  function getSize(magnitude) {
-    if (magnitude === 0) {
-      return 1;
-    }
-    return magnitude * 5;
-  }
+  
 
 
   L.geoJson(data, {
