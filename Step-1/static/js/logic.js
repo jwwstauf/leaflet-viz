@@ -43,12 +43,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     style: stylin,
     onEachFeature: function(feature, layer) {
       layer.bindPopup(
-        "Magnitude: "
-          + feature.properties.mag
-          + "<br>Depth: "
-          + feature.geometry.coordinates[2]
-          + "<br>Location: "
-          + feature.properties.place
+        "Magnitude: "  + feature.properties.mag + "<br>Depth: " + feature.geometry.coordinates[2] + "<br>Location: " + feature.properties.place
       );
     }
   }).addTo(map);
